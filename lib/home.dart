@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:kelas_flutter/latihan1/login_page.dart';
+import 'package:kelas_flutter/event_handling_widget/elevated_button.dart';
+import 'package:kelas_flutter/event_handling_widget/gesture_widget.dart';
+import 'package:kelas_flutter/event_handling_widget/icon_button.dart';
+import 'package:kelas_flutter/event_handling_widget/inkwell_widget.dart';
+import 'package:kelas_flutter/event_handling_widget/text_button.dart';
 import 'package:kelas_flutter/layout_widget/layout_widgets.dart';
-import 'package:kelas_flutter/text_widget/text_widget.dart';
+import 'package:kelas_flutter/other_widget/other_widget.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key, required this.title});
@@ -18,35 +22,26 @@ class Home extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const LayoutScreen()),
-                  );
-                },
-                child: const Text("Layout Widgets")),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const TextWidgetScreen()),
-                  );
-                },
-                child: const Text("Text Widgets")),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LoginPage()),
-                  );
-                },
-                child: const Text("Login Page"))
+            layoutWidget(context),
+            const ElevatedWidget(),
+            const IconButtonWidget(),
+            const InkwellWidget(),
+            const GestureWidget(),
+            const TextButtonWidget()
           ],
         ),
       ),
     );
+  }
+
+  ElevatedButton layoutWidget(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const LayoutScreen()),
+          );
+        },
+        child: const Text("Layout Widgets"));
   }
 }
