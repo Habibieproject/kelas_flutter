@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kelas_flutter/repository/book_data.dart';
 import 'package:kelas_flutter/utils/app_image.dart';
 
 class BookAppList extends StatelessWidget {
@@ -36,12 +37,13 @@ class BookAppList extends StatelessWidget {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
-              itemCount: 10,
+              itemCount: bookData.length,
               itemBuilder: (BuildContext context, int index) {
+                final data = bookData[index];
                 return Row(
                   children: [
                     Image.asset(
-                      AppImage.book7,
+                      data.gambarBuku,
                       height: 120,
                     ),
                     const SizedBox(
