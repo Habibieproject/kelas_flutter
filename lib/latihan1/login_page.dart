@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kelas_flutter/project_train/book_app.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -48,7 +49,36 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(
                     height: 8,
                   ),
-                  ElevatedButton(onPressed: () {}, child: const Text("Sign In"))
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const BookAppList()),
+                      );
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Container(
+                          height: 40,
+                          width: double.infinity,
+                          decoration: const BoxDecoration(
+                            color: Colors.blue,
+                            border: Border(
+                                bottom: BorderSide(
+                              width: 5,
+                            )),
+                            // borderRadius:
+                            //     BorderRadius.only(topLeft: Radius.circular(15))
+                          ),
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("Tab Bar Widget"),
+                            ],
+                          )),
+                    ),
+                  )
                 ],
               ),
             ),
