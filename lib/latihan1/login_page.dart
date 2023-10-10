@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kelas_flutter/project_train/book_app/book_app.dart';
+import 'package:kelas_flutter/project_train/whatsapp/wa_home.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
-
+  LoginPage({super.key});
+  final TextEditingController usernameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,6 +33,7 @@ class LoginPage extends StatelessWidget {
                     height: 8,
                   ),
                   TextField(
+                    controller: usernameController,
                     decoration: InputDecoration(
                         hintText: "Username",
                         border: OutlineInputBorder(
@@ -51,11 +53,19 @@ class LoginPage extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const BookAppList()),
-                      );
+                      if (usernameController.text == "wa") {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const WhatsApp()),
+                        );
+                      } else {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const BookAppList()),
+                        );
+                      }
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(15),
