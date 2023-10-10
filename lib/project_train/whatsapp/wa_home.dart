@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kelas_flutter/project_train/whatsapp/tab/chat/chat_screen.dart';
+import 'package:kelas_flutter/project_train/whatsapp/tab/status/list_status.dart';
+import 'package:kelas_flutter/project_train/whatsapp/tab/status/status_screen.dart';
 
 class WhatsApp extends StatelessWidget {
   const WhatsApp({super.key});
@@ -71,8 +74,10 @@ class WhatsApp extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
-            Center(child: Text('Konten Tab 1')),
-            Center(child: Text('Konten Tab 2')),
+            ChatScreen(),
+            ListStatusScreen(),
+            // Center(child: Text('Konten Tab 1')),
+            // Center(child: Text('Konten Tab 2')),
             Center(child: Text('Konten Tab 3')),
           ],
         ),
