@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kelas_flutter/project_train/book_app/detail_book.dart';
 import 'package:kelas_flutter/repository/book_data.dart';
 import 'package:kelas_flutter/utils/app_image.dart';
 
@@ -40,16 +41,27 @@ class BookAppList extends StatelessWidget {
               itemCount: bookData.length,
               itemBuilder: (BuildContext context, int index) {
                 final data = bookData[index];
-                return Row(
-                  children: [
-                    Image.asset(
-                      data.gambarBuku,
-                      height: 120,
-                    ),
-                    const SizedBox(
-                      width: 4,
-                    )
-                  ],
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetailBook(
+                                data: data,
+                              )),
+                    );
+                  },
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        data.gambarBuku,
+                        height: 120,
+                      ),
+                      const SizedBox(
+                        width: 4,
+                      )
+                    ],
+                  ),
                 );
               },
             ),
