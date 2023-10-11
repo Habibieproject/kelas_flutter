@@ -5,7 +5,7 @@ import 'package:kelas_flutter/event_handling_widget/icon_button.dart';
 import 'package:kelas_flutter/event_handling_widget/inkwell_widget.dart';
 import 'package:kelas_flutter/event_handling_widget/text_button.dart';
 import 'package:kelas_flutter/layout_widget/layout_widgets.dart';
-import 'package:kelas_flutter/other_widget/other_widget.dart';
+import 'package:kelas_flutter/project_train/todo_app/todo_app.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key, required this.title});
@@ -27,7 +27,15 @@ class Home extends StatelessWidget {
             const IconButtonWidget(),
             const InkwellWidget(),
             const GestureWidget(),
-            const TextButtonWidget()
+            const TextButtonWidget(),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const TodoApp()),
+                  );
+                },
+                child: const Text("Todo App"))
           ],
         ),
       ),
